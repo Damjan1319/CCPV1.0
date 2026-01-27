@@ -1,0 +1,97 @@
+{
+  "app": {
+    "title": "CCP",
+    "subtitle": "Find your perfect price"
+  },
+  "search": {
+    "placeholder": "Search for products...",
+    "button": "Search",
+    "loading": "Searching...",
+    "noResults": "No products found",
+    "error": "An error occurred while searching",
+    "resultsCount": "{{count}} product",
+    "resultsCountPlural": "{{count}} products"
+  },
+  "product": {
+    "price": "Price",
+    "rating": "Rating",
+    "delivery": "Delivery",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "visitStore": "Visit Store",
+    "noRating": "No rating"
+  },
+  "filter": {
+    "sortBy": "Sort by",
+    "priceLow": "Price: Low to High",
+    "priceHigh": "Price: High to Low",
+    "rating": "Rating",
+    "deliverySpeed": "Delivery Speed",
+    "location": "Location",
+    "allLocations": "All Locations",
+    "entireIsland": "Entire Island",
+    "priceRange": "Price Range",
+    "store": "Store"
+  },
+  "compare": {
+    "title": "Compare Products",
+    "add": "Compare",
+    "added": "Added",
+    "remove": "Remove",
+    "clearAll": "Clear All",
+    "addMore": "Add more to compare",
+    "feature": "Feature"
+  },
+  "location": {
+    "city": "City",
+    "availableIn": "Available in",
+    "islandWide": "Island-wide delivery"
+  },
+  "language": {
+    "switch": "Switch Language",
+    "english": "English",
+    "greek": "Greek"
+  },
+  "auth": {
+    "register": "Register",
+    "login": "Login",
+    "logout": "Logout",
+    "changePassword": "Change Password",
+    "email": "Email",
+    "password": "Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "emailPlaceholder": "your@email.com",
+    "passwordPlaceholder": "Enter your password",
+    "registerInfo": "We'll send you a password via email",
+    "registering": "Registering...",
+    "loggingIn": "Logging in...",
+    "changing": "Changing...",
+    "registerSuccess": "Account created! Check your email for password.",
+    "registerError": "Registration failed",
+    "loginError": "Invalid email or password",
+    "changePasswordError": "Failed to change password",
+    "passwordMismatch": "Passwords do not match",
+    "passwordTooShort": "Password must be at least 8 characters",
+    "passwordChanged": "Password changed successfully"
+  },
+  "alerts": {
+    "title": "My Price Alerts",
+    "noAlerts": "No alerts set. Add alerts to track price drops!",
+    "addAlert": "Set Price Alert",
+    "targetPrice": "Target Price",
+    "currentPrice": "Current Price",
+    "delete": "Delete",
+    "status": "Status",
+    "active": "Active",
+    "triggered": "Triggered",
+    "created": "Created",
+    "setAlert": "Set Alert",
+    "alertInfo": "Get notified when price drops below your target",
+    "targetPricePlaceholder": "Enter target price",
+    "alertCreated": "Alert created successfully",
+    "alertDeleted": "Alert deleted",
+    "loginRequired": "Please login to set price alerts"
+  }
+}

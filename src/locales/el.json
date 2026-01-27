@@ -1,0 +1,97 @@
+{
+  "app": {
+    "title": "CCP",
+    "subtitle": "Βρείτε την τέλεια τιμή"
+  },
+  "search": {
+    "placeholder": "Αναζήτηση προϊόντων...",
+    "button": "Αναζήτηση",
+    "loading": "Αναζήτηση...",
+    "noResults": "Δεν βρέθηκαν προϊόντα",
+    "error": "Παρουσιάστηκε σφάλμα κατά την αναζήτηση",
+    "resultsCount": "{{count}} προϊόν",
+    "resultsCountPlural": "{{count}} προϊόντα"
+  },
+  "product": {
+    "price": "Τιμή",
+    "rating": "Αξιολόγηση",
+    "delivery": "Παράδοση",
+    "inStock": "Σε Απόθεμα",
+    "outOfStock": "Εκτός Αποθέματος",
+    "visitStore": "Επισκεφτείτε το Κατάστημα",
+    "noRating": "Χωρίς αξιολόγηση"
+  },
+  "filter": {
+    "sortBy": "Ταξινόμηση κατά",
+    "priceLow": "Τιμή: Χαμηλή προς Υψηλή",
+    "priceHigh": "Τιμή: Υψηλή προς Χαμηλή",
+    "rating": "Αξιολόγηση",
+    "deliverySpeed": "Ταχύτητα Παράδοσης",
+    "location": "Τοποθεσία",
+    "allLocations": "Όλες οι Τοποθεσίες",
+    "entireIsland": "Ολόκληρο Νησί",
+    "priceRange": "Εύρος Τιμής",
+    "store": "Κατάστημα"
+  },
+  "compare": {
+    "title": "Σύγκριση Προϊόντων",
+    "add": "Σύγκριση",
+    "added": "Προστέθηκε",
+    "remove": "Αφαίρεση",
+    "clearAll": "Καθαρισμός Όλων",
+    "addMore": "Προσθέστε περισσότερα για σύγκριση",
+    "feature": "Χαρακτηριστικό"
+  },
+  "location": {
+    "city": "Πόλη",
+    "availableIn": "Διαθέσιμο σε",
+    "islandWide": "Παράδοση σε όλο το νησί"
+  },
+  "language": {
+    "switch": "Αλλαγή Γλώσσας",
+    "english": "Αγγλικά",
+    "greek": "Ελληνικά"
+  },
+  "auth": {
+    "register": "Εγγραφή",
+    "login": "Σύνδεση",
+    "logout": "Αποσύνδεση",
+    "changePassword": "Αλλαγή Κωδικού",
+    "email": "Email",
+    "password": "Κωδικός",
+    "currentPassword": "Τρέχων Κωδικός",
+    "newPassword": "Νέος Κωδικός",
+    "confirmPassword": "Επιβεβαίωση Κωδικού",
+    "emailPlaceholder": "your@email.com",
+    "passwordPlaceholder": "Εισάγετε τον κωδικό σας",
+    "registerInfo": "Θα σας στείλουμε κωδικό μέσω email",
+    "registering": "Εγγραφή...",
+    "loggingIn": "Σύνδεση...",
+    "changing": "Αλλαγή...",
+    "registerSuccess": "Ο λογαριασμός δημιουργήθηκε! Ελέγξτε το email σας για τον κωδικό.",
+    "registerError": "Η εγγραφή απέτυχε",
+    "loginError": "Μη έγκυρο email ή κωδικός",
+    "changePasswordError": "Αποτυχία αλλαγής κωδικού",
+    "passwordMismatch": "Οι κωδικοί δεν ταιριάζουν",
+    "passwordTooShort": "Ο κωδικός πρέπει να έχει τουλάχιστον 8 χαρακτήρες",
+    "passwordChanged": "Ο κωδικός άλλαξε επιτυχώς"
+  },
+  "alerts": {
+    "title": "Οι Ειδοποιήσεις Τιμών μου",
+    "noAlerts": "Δεν υπάρχουν ειδοποιήσεις. Προσθέστε ειδοποιήσεις για παρακολούθηση πτώσεων τιμών!",
+    "addAlert": "Ορισμός Ειδοποίησης Τιμής",
+    "targetPrice": "Στόχος Τιμής",
+    "currentPrice": "Τρέχουσα Τιμή",
+    "delete": "Διαγραφή",
+    "status": "Κατάσταση",
+    "active": "Ενεργό",
+    "triggered": "Ενεργοποιήθηκε",
+    "created": "Δημιουργήθηκε",
+    "setAlert": "Ορισμός Ειδοποίησης",
+    "alertInfo": "Λάβετε ειδοποίηση όταν η τιμή πέσει κάτω από τον στόχο σας",
+    "targetPricePlaceholder": "Εισάγετε στόχο τιμής",
+    "alertCreated": "Η ειδοποίηση δημιουργήθηκε επιτυχώς",
+    "alertDeleted": "Η ειδοποίηση διαγράφηκε",
+    "loginRequired": "Παρακαλώ συνδεθείτε για να ορίσετε ειδοποιήσεις τιμών"
+  }
+}
