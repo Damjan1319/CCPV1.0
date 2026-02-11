@@ -6,7 +6,7 @@ import { Product, Store, ScrapingConfig } from '../types';
 
 // Mock stores configuration for Cyprus market
 // In production, these would be real store configurations
-const STORES: Store[] = [
+export const STORES: Store[] = [
   {
     id: 'store1',
     name: 'Cyprus Electronics',

@@ -10,7 +10,18 @@
     "noResults": "No products found",
     "error": "An error occurred while searching",
     "resultsCount": "{{count}} product",
-    "resultsCountPlural": "{{count}} products"
+    "resultsCountPlural": "{{count}} products",
+    "hero": {
+      "title": "Search, compare, save",
+      "subtitle": "Find your next deal today",
+      "placeholder": "What are you looking for today?",
+      "stats": "Compare prices from multiple stores"
+    }
+  },
+  "app": {
+    "title": "CCP",
+    "subtitle": "Find your perfect price",
+    "settings": "Settings"
   },
   "product": {
     "price": "Price",
@@ -19,7 +30,8 @@
     "inStock": "In Stock",
     "outOfStock": "Out of Stock",
     "visitStore": "Visit Store",
-    "noRating": "No rating"
+    "noRating": "No rating",
+    "stores": "stores"
   },
   "filter": {
     "sortBy": "Sort by",
@@ -93,5 +105,42 @@
     "alertCreated": "Alert created successfully",
     "alertDeleted": "Alert deleted",
     "loginRequired": "Please login to set price alerts"
+  },
+  "home": {
+    "mostSearched": "Most Searched Devices",
+    "bestRated": "Best Rated Products",
+    "latestDeals": "Latest Deals",
+    "fastestDelivery": "Fastest Delivery"
+  },
+  "banner": {
+    "title": "Save More, Shop Smarter",
+    "description": "Compare prices from thousands of stores and find the best deals. Get price alerts and never miss a sale again!",
+    "feature1": "Compare prices instantly",
+    "feature2": "Price alerts",
+    "feature3": "Best deals guaranteed"
+  },
+  "stores": {
+    "topStores": "Top Stores"
+  },
+  "footer": {
+    "about": "About",
+    "description": "Compare prices from multiple stores and find the best deals. Save time and money with our price comparison platform.",
+    "quickLinks": "Quick Links",
+    "howItWorks": "How It Works",
+    "categories": "Categories",
+    "stores": "Stores",
+    "deals": "Deals",
+    "support": "Support",
+    "help": "Help Center",
+    "contact": "Contact Us",
+    "faq": "FAQ",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy",
+    "rights": "All rights reserved.",
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram"
   }
 }

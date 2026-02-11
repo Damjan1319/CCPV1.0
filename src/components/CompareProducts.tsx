@@ -15,7 +15,7 @@ export function CompareProducts({ products, onRemove, onClear }: CompareProducts
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-lg z-50">
+    <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#1c1c1e] border-t border-gray-200 dark:border-[#38383a] shadow-lg z-50 max-w-full overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
@@ -25,7 +25,7 @@ export function CompareProducts({ products, onRemove, onClear }: CompareProducts
           </div>
           <button
             onClick={onClear}
-            className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium"
+            className="text-sm text-[#86868b] dark:text-[#ebebf5]/60 hover:text-[#1d1d1f] dark:hover:text-white font-medium font-apple"
           >
             {t('compare.clearAll')}
           </button>
@@ -34,7 +34,7 @@ export function CompareProducts({ products, onRemove, onClear }: CompareProducts
           {products.map((product) => (
             <div
               key={product.id}
-              className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600"
+              className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-[#2c2c2e] rounded-lg border border-gray-200 dark:border-[#38383a]"
             >
               {product.imageUrl && (
                 <img
@@ -65,7 +65,7 @@ export function CompareProducts({ products, onRemove, onClear }: CompareProducts
             </div>
           ))}
           {products.length < 3 && (
-            <div className="flex items-center justify-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600">
+            <div className="flex items-center justify-center p-3 bg-gray-50 dark:bg-[#2c2c2e] rounded-lg border-2 border-dashed border-gray-300 dark:border-[#38383a]">
               <span className="text-sm text-gray-500 dark:text-gray-400">
                 {t('compare.addMore')}
               </span>

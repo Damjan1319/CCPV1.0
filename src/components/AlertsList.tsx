@@ -77,7 +77,7 @@ export function AlertsList() {
       {alerts.map((alert) => (
         <div
           key={alert.id}
-          className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow"
+          className="bg-white dark:bg-[#1c1c1e] rounded-lg border border-gray-200 dark:border-[#38383a] p-4 hover:shadow-md transition-shadow"
         >
           <div className="flex gap-4">
             {alert.product_image_url && (
@@ -137,7 +137,7 @@ export function AlertsList() {
                 href={alert.product_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white rounded-md hover:bg-gray-800 dark:hover:bg-gray-600 text-sm text-center"
+                className="px-3 py-1.5 bg-gray-900 dark:bg-[#007AFF] text-white rounded-md hover:bg-gray-800 dark:hover:bg-[#0051D5] text-sm text-center font-apple font-medium"
               >
                 {t('product.visitStore')}
               </a>

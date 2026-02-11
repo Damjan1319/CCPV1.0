@@ -4,6 +4,10 @@ import { useProductSearch } from './hooks/useProductSearch';
 import { useDarkMode } from './hooks/useDarkMode';
 import { SearchBar } from './components/SearchBar';
 import { ProductList } from './components/ProductList';
+import { ProductSlider } from './components/ProductSlider';
+import { PromoBanner } from './components/PromoBanner';
+import { TopStores } from './components/TopStores';
+import { Footer } from './components/Footer';
 import { FilterBar, sortProducts } from './components/FilterBar';
 import { LocationFilter } from './components/LocationFilter';
 import { PriceRangeFilter } from './components/PriceRangeFilter';
@@ -14,7 +18,10 @@ import { SetAlertModal } from './components/SetAlertModal';
 import { AlertsList } from './components/AlertsList';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { DarkModeToggle } from './components/DarkModeToggle';
+import { HamburgerMenu } from './components/HamburgerMenu';
 import { isAuthenticated, authAPI } from './lib/api';
+import { getMostSearchedDevices, getBestRatedProducts, getLatestDeals, getFastestDeliveryProducts } from './utils/homeSections';
+import { STORES } from './lib/scraper';
 import type { SortOption } from './components/FilterBar';
 import type { Product } from './types';
 import './lib/i18n';
@@ -36,6 +43,12 @@ function App() {
   const [showAlerts, setShowAlerts] = useState(false);
   const [showSetAlertModal, setShowSetAlertModal] = useState(false);
   const [selectedProductForAlert, setSelectedProductForAlert] = useState<Product | null>(null);
+  
+  // Home page slider products
+  const [mostSearchedDevices] = useState<Product[]>(() => getMostSearchedDevices());
+  const [bestRatedProducts] = useState<Product[]>(() => getBestRatedProducts());
+  const [latestDeals] = useState<Product[]>(() => getLatestDeals());
+  const [fastestDelivery] = useState<Product[]>(() => getFastestDeliveryProducts());
 
   // Check authentication on mount
   useEffect(() => {
@@ -152,19 +165,20 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-32">
-      <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#000000] flex flex-col overflow-x-hidden">
+      <header className="bg-white dark:bg-[#1c1c1e] border-b border-gray-200 dark:border-[#38383a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex flex-col">
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white tracking-tight leading-none">
+              <h1 className="text-3xl font-semibold text-[#1d1d1f] dark:text-white tracking-[-0.01em] leading-none font-apple">
                 {t('app.title')}
               </h1>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 font-medium">
+              <p className="text-sm text-[#86868b] dark:text-[#ebebf5] mt-1.5 font-medium font-apple">
                 {t('app.subtitle')}
               </p>
             </div>
-            <div className="flex items-center gap-4">
+            {/* Desktop Menu */}
+            <div className="hidden lg:flex items-center gap-4">
               <DarkModeToggle />
               {authenticated && (
                 <div className="flex items-center gap-2">
@@ -207,7 +221,7 @@ function App() {
                       setAuthMode('login');
                       setShowAuthModal(true);
                     }}
-                    className="px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-md hover:bg-gray-800 dark:hover:bg-gray-600 text-sm font-medium"
+                    className="px-4 py-2 bg-gray-900 dark:bg-[#007AFF] text-white rounded-md hover:bg-gray-800 dark:hover:bg-[#0051D5] text-sm font-medium font-apple"
                   >
                     {t('auth.login')}
                   </button>
@@ -215,11 +229,38 @@ function App() {
               )}
               <LanguageSwitcher />
             </div>
+            {/* Mobile Hamburger Menu */}
+            <div className="lg:hidden">
+              <HamburgerMenu
+                authenticated={authenticated}
+                onShowAlerts={() => setShowAlerts(!showAlerts)}
+                onShowChangePassword={() => {
+                  setAuthMode('change-password');
+                  setShowAuthModal(true);
+                }}
+                onLogout={handleLogout}
+                onShowRegister={() => {
+                  setAuthMode('register');
+                  setShowAuthModal(true);
+                }}
+                onShowLogin={() => {
+                  setAuthMode('login');
+                  setShowAuthModal(true);
+                }}
+              />
+            </div>
           </div>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* SearchBar - Always visible, full width */}
+      {!showAlerts && (
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
+          <SearchBar onSearch={handleSearch} loading={loading} />
+        </div>
+      )}
+
+      <main className={`${products.length > 0 && searchQuery ? 'w-full' : 'max-w-7xl mx-auto'} px-4 sm:px-6 lg:px-8 py-8 flex-1`}>
         {showAlerts ? (
           <div>
             <div className="mb-6 flex items-center justify-between">
@@ -235,9 +276,49 @@ function App() {
           </div>
         ) : (
           <>
-            <div className="mb-8">
-              <SearchBar onSearch={handleSearch} loading={loading} />
-            </div>
+
+            {/* Home Page Sliders - Only show when no search results */}
+            {products.length === 0 && !loading && !searchQuery && (
+              <div className="space-y-12">
+                <ProductSlider
+                  title={t('home.mostSearched', { defaultValue: 'Most Searched Devices' })}
+                  products={mostSearchedDevices}
+                  onCompare={handleCompare}
+                  onSetAlert={handleSetAlert}
+                  isAuthenticated={authenticated}
+                />
+                
+                <ProductSlider
+                  title={t('home.bestRated', { defaultValue: 'Best Rated Products' })}
+                  products={bestRatedProducts}
+                  onCompare={handleCompare}
+                  onSetAlert={handleSetAlert}
+                  isAuthenticated={authenticated}
+                />
+                
+                <ProductSlider
+                  title={t('home.latestDeals', { defaultValue: 'Latest Deals' })}
+                  products={latestDeals}
+                  onCompare={handleCompare}
+                  onSetAlert={handleSetAlert}
+                  isAuthenticated={authenticated}
+                />
+                
+                <ProductSlider
+                  title={t('home.fastestDelivery', { defaultValue: 'Fastest Delivery' })}
+                  products={fastestDelivery}
+                  onCompare={handleCompare}
+                  onSetAlert={handleSetAlert}
+                  isAuthenticated={authenticated}
+                />
+
+                {/* Promo Banner */}
+                <PromoBanner />
+
+                {/* Top Stores */}
+                <TopStores stores={STORES} />
+              </div>
+            )}
 
             {error && (
               <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-700 dark:text-red-400 text-sm">
@@ -245,9 +326,16 @@ function App() {
               </div>
             )}
 
+            {/* Show "no results" only when user searched but found nothing */}
+            {searchQuery && products.length === 0 && !loading && (
+              <div className="text-center py-16">
+                <p className="text-lg text-gray-500 dark:text-gray-400">{t('search.noResults')}</p>
+              </div>
+            )}
+
             {products.length > 0 && (
               <div className="mb-6 space-y-4">
-                <div className="flex flex-wrap items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                <div className="flex flex-wrap items-center gap-4 p-4 bg-white dark:bg-[#1c1c1e] rounded-lg border border-gray-200 dark:border-[#38383a]">
                   <LocationFilter
                     selectedLocation={selectedLocation}
                     onLocationChange={handleLocationChange}
@@ -267,7 +355,7 @@ function App() {
                       : t('search.resultsCountPlural', { count: sortedProducts.length })}
                   </div>
                 </div>
-                <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                <div className="p-4 bg-white dark:bg-[#1c1c1e] rounded-lg border border-gray-200 dark:border-[#38383a]">
                   <StoreFilter
                     products={products}
                     selectedStores={selectedStores}
@@ -289,11 +377,13 @@ function App() {
         )}
       </main>
 
-      <CompareProducts
-        products={compareProducts}
-        onRemove={handleRemoveCompare}
-        onClear={handleClearCompare}
-      />
+      {compareProducts.length > 0 && (
+        <CompareProducts
+          products={compareProducts}
+          onRemove={handleRemoveCompare}
+          onClear={handleClearCompare}
+        />
+      )}
 
       <AuthModal
         isOpen={showAuthModal}
@@ -311,6 +401,9 @@ function App() {
         product={selectedProductForAlert}
         onSuccess={handleAlertCreated}
       />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

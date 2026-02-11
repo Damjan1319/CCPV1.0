@@ -91,7 +91,7 @@ export function AuthModal({ isOpen, onClose, onSuccess, mode }: AuthModalProps) 
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-lg max-w-md w-full p-6">
+      <div className="bg-white dark:bg-[#1c1c1e] rounded-lg max-w-md w-full p-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">
             {mode === 'register' && t('auth.register')}
@@ -121,7 +121,7 @@ export function AuthModal({ isOpen, onClose, onSuccess, mode }: AuthModalProps) 
         {mode === 'register' && (
           <form onSubmit={handleRegister}>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-[#1d1d1f] dark:text-[#ebebf5] mb-2 font-apple">
                 {t('auth.email')}
               </label>
               <input
@@ -133,13 +133,13 @@ export function AuthModal({ isOpen, onClose, onSuccess, mode }: AuthModalProps) 
                 placeholder={t('auth.emailPlaceholder')}
               />
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-sm text-[#86868b] dark:text-[#ebebf5]/60 mb-4 font-apple">
               {t('auth.registerInfo')}
             </p>
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gray-900 dark:bg-gray-700 text-white py-2 px-4 rounded-md hover:bg-gray-800 dark:hover:bg-gray-600 disabled:opacity-50"
+              className="w-full bg-gray-900 dark:bg-[#007AFF] text-white py-2 px-4 rounded-md hover:bg-gray-800 dark:hover:bg-[#0051D5] disabled:opacity-50 font-apple font-medium"
             >
               {loading ? t('auth.registering') : t('auth.register')}
             </button>
@@ -149,7 +149,7 @@ export function AuthModal({ isOpen, onClose, onSuccess, mode }: AuthModalProps) 
         {mode === 'login' && (
           <form onSubmit={handleLogin}>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-[#1d1d1f] dark:text-[#ebebf5] mb-2 font-apple">
                 {t('auth.email')}
               </label>
               <input
@@ -162,7 +162,7 @@ export function AuthModal({ isOpen, onClose, onSuccess, mode }: AuthModalProps) 
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-[#1d1d1f] dark:text-[#ebebf5] mb-2 font-apple">
                 {t('auth.password')}
               </label>
               <input
@@ -177,7 +177,7 @@ export function AuthModal({ isOpen, onClose, onSuccess, mode }: AuthModalProps) 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gray-900 dark:bg-gray-700 text-white py-2 px-4 rounded-md hover:bg-gray-800 dark:hover:bg-gray-600 disabled:opacity-50"
+              className="w-full bg-gray-900 dark:bg-[#007AFF] text-white py-2 px-4 rounded-md hover:bg-gray-800 dark:hover:bg-[#0051D5] disabled:opacity-50 font-apple font-medium"
             >
               {loading ? t('auth.loggingIn') : t('auth.login')}
             </button>
@@ -187,7 +187,7 @@ export function AuthModal({ isOpen, onClose, onSuccess, mode }: AuthModalProps) 
         {mode === 'change-password' && (
           <form onSubmit={handleChangePassword}>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-[#1d1d1f] dark:text-[#ebebf5] mb-2 font-apple">
                 {t('auth.currentPassword')}
               </label>
               <input
@@ -199,7 +199,7 @@ export function AuthModal({ isOpen, onClose, onSuccess, mode }: AuthModalProps) 
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-[#1d1d1f] dark:text-[#ebebf5] mb-2 font-apple">
                 {t('auth.newPassword')}
               </label>
               <input
@@ -212,7 +212,7 @@ export function AuthModal({ isOpen, onClose, onSuccess, mode }: AuthModalProps) 
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-[#1d1d1f] dark:text-[#ebebf5] mb-2 font-apple">
                 {t('auth.confirmPassword')}
               </label>
               <input
@@ -227,7 +227,7 @@ export function AuthModal({ isOpen, onClose, onSuccess, mode }: AuthModalProps) 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gray-900 dark:bg-gray-700 text-white py-2 px-4 rounded-md hover:bg-gray-800 dark:hover:bg-gray-600 disabled:opacity-50"
+              className="w-full bg-gray-900 dark:bg-[#007AFF] text-white py-2 px-4 rounded-md hover:bg-gray-800 dark:hover:bg-[#0051D5] disabled:opacity-50 font-apple font-medium"
             >
               {loading ? t('auth.changing') : t('auth.changePassword')}
             </button>

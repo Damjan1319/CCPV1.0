@@ -61,7 +61,7 @@ export function SetAlertModal({ isOpen, onClose, product, onSuccess }: SetAlertM
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-lg max-w-md w-full p-6">
+      <div className="bg-white dark:bg-[#1c1c1e] rounded-lg max-w-md w-full p-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">{t('alerts.setAlert')}</h2>
           <button
@@ -73,8 +73,8 @@ export function SetAlertModal({ isOpen, onClose, product, onSuccess }: SetAlertM
         </div>
 
         <div className="mb-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{product.name}</p>
-          <p className="text-lg font-bold text-gray-900 dark:text-white">
+          <p className="text-sm text-[#86868b] dark:text-[#ebebf5]/60 mb-2 font-apple">{product.name}</p>
+          <p className="text-lg font-semibold text-[#1d1d1f] dark:text-white font-apple tracking-[-0.01em]">
             {t('alerts.currentPrice')}: {product.price.toFixed(2)} {product.currency}
           </p>
         </div>
@@ -117,7 +117,7 @@ export function SetAlertModal({ isOpen, onClose, product, onSuccess }: SetAlertM
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 bg-gray-900 dark:bg-gray-700 text-white py-2 px-4 rounded-md hover:bg-gray-800 dark:hover:bg-gray-600 disabled:opacity-50"
+              className="flex-1 bg-gray-900 dark:bg-[#007AFF] text-white py-2 px-4 rounded-md hover:bg-gray-800 dark:hover:bg-[#0051D5] disabled:opacity-50 font-apple font-medium"
             >
               {loading ? 'Creating...' : t('alerts.setAlert')}
             </button>

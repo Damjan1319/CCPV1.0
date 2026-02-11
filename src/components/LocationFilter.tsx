@@ -12,13 +12,13 @@ export function LocationFilter({ selectedLocation, onLocationChange }: LocationF
 
   return (
     <div className="flex items-center gap-3">
-      <label className="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
+      <label className="text-sm font-medium text-[#1d1d1f] dark:text-[#ebebf5] whitespace-nowrap font-apple">
         {t('filter.location')}:
       </label>
       <select
         value={selectedLocation}
         onChange={(e) => onLocationChange(e.target.value)}
-        className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm min-w-[180px]"
+        className="px-4 py-2 border border-gray-300 dark:border-[#38383a] rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-500 bg-white dark:bg-[#2c2c2e] text-[#1d1d1f] dark:text-white text-sm min-w-[180px] font-apple"
       >
         {CYPRUS_CITIES.map((city) => (
           <option key={city.value} value={city.value}>

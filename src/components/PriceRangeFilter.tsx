@@ -21,7 +21,7 @@ export function PriceRangeFilter({
 
   return (
     <div className="flex items-center gap-3">
-      <label className="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
+      <label className="text-sm font-medium text-[#1d1d1f] dark:text-[#ebebf5] whitespace-nowrap font-apple">
         {t('filter.priceRange')}:
       </label>
       <div className="flex items-center gap-2">
@@ -32,7 +32,7 @@ export function PriceRangeFilter({
           value={currentMin || ''}
           onChange={(e) => onMinPriceChange(Number(e.target.value) || minPrice)}
           placeholder={minPrice.toString()}
-          className="w-20 px-2 py-1.5 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+          className="w-20 px-2 py-1.5 border border-gray-300 dark:border-[#38383a] rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-500 bg-white dark:bg-[#2c2c2e] text-[#1d1d1f] dark:text-white text-sm font-apple"
         />
         <span className="text-gray-500 dark:text-gray-400">-</span>
         <input
@@ -42,7 +42,7 @@ export function PriceRangeFilter({
           value={currentMax || ''}
           onChange={(e) => onMaxPriceChange(Number(e.target.value) || maxPrice)}
           placeholder={maxPrice.toString()}
-          className="w-20 px-2 py-1.5 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+          className="w-20 px-2 py-1.5 border border-gray-300 dark:border-[#38383a] rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-500 bg-white dark:bg-[#2c2c2e] text-[#1d1d1f] dark:text-white text-sm font-apple"
         />
         <span className="text-xs text-gray-500 dark:text-gray-400">EUR</span>
       </div>

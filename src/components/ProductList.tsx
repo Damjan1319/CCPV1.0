@@ -22,25 +22,24 @@ export function ProductList({ products, loading, onCompare, compareProducts, onS
     );
   }
 
+  // Only show "no results" if there was a search query
+  // This check should be done in parent component, but we'll handle it here for safety
   if (products.length === 0) {
-    return (
-      <div className="text-center py-16">
-        <p className="text-base text-gray-500 dark:text-gray-400">{t('search.noResults')}</p>
-      </div>
-    );
+    return null; // Don't show anything if no products - parent will handle the message
   }
 
   return (
-    <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 w-full">
       {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          onCompare={onCompare}
-          isInCompare={compareProducts?.some((p) => p.id === product.id)}
-          onSetAlert={onSetAlert}
-          isAuthenticated={isAuthenticated}
-        />
+        <div key={product.id} className="h-full">
+          <ProductCard
+            product={product}
+            onCompare={onCompare}
+            isInCompare={compareProducts?.some((p) => p.id === product.id)}
+            onSetAlert={onSetAlert}
+            isAuthenticated={isAuthenticated}
+          />
+        </div>
       ))}
     </div>
   );
