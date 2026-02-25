@@ -59,8 +59,13 @@ export function ProductCard({ product, onCompare, isInCompare, onSetAlert, isAut
           alt={product.name}
           className="w-full h-full object-contain rounded-xl p-2"
           style={{ mixBlendMode: 'multiply' }}
+          referrerPolicy="no-referrer"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=400&q=80';
+            const img = e.target as HTMLImageElement;
+            if (!img.dataset.fallback) {
+              img.dataset.fallback = '1';
+              img.src = 'https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=400&q=80';
+            }
           }}
         />
         {isOnSale && discountPercent > 0 && (
