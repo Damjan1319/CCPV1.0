@@ -140,7 +140,7 @@ export const STORE_CONFIGS = [
       camera: '/cat/cameras/digital-cameras',
       'washing machine': '/cat/large-home-appliances/washing-machines',
       refrigerator: '/cat/large-home-appliances/refrigerators',
-      air: '/cat/large-home-appliances/air-conditioners',
+      'air conditioner': '/cat/large-home-appliances/air-conditioners',
     },
   },
 
@@ -182,7 +182,7 @@ export const STORE_CONFIGS = [
       camera: '/en/products/sound-vision/cameras/',
       'washing machine': '/en/products/home-appliances/washing-machines/',
       refrigerator: '/en/products/home-appliances/refrigerators/',
-      air: '/en/products/home-appliances/air-conditioning/',
+      'air conditioner': '/en/products/home-appliances/air-conditioning/',
     },
   },
 ];

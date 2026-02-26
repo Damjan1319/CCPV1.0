@@ -89,7 +89,7 @@ function parsePrice(priceText) {
 
 function isRelevant(productName, query) {
   const stopWords = new Set(['and', 'or', 'the', 'with', 'for', 'a', 'an', 'in', 'of', 'to']);
-  const words = query.toLowerCase().split(/\s+/).filter((w) => w.length > 2 && !stopWords.has(w));
+  const words = query.toLowerCase().split(/\s+/).filter((w) => w.length > 1 && !stopWords.has(w));
   if (words.length === 0) return true; // can't filter, allow all
   const name = productName.toLowerCase();
   return words.some((w) => name.includes(w));

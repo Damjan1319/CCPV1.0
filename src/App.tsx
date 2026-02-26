@@ -4,7 +4,6 @@ import { useProductSearch } from './hooks/useProductSearch';
 import { useDarkMode } from './hooks/useDarkMode';
 import { SearchBar } from './components/SearchBar';
 import { ProductList } from './components/ProductList';
-import { ProductSlider } from './components/ProductSlider';
 import { PromoBanner } from './components/PromoBanner';
 import { TopStores } from './components/TopStores';
 import { Footer } from './components/Footer';
@@ -20,8 +19,9 @@ import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { DarkModeToggle } from './components/DarkModeToggle';
 import { HamburgerMenu } from './components/HamburgerMenu';
 import { isAuthenticated, authAPI } from './lib/api';
-import { getMostSearchedDevices, getBestRatedProducts, getLatestDeals, getFastestDeliveryProducts } from './utils/homeSections';
 import { STORES } from './lib/scraper';
+import { CategoryNav } from './components/CategoryNav';
+import { CategoryGrid } from './components/CategoryGrid';
 import type { SortOption } from './components/FilterBar';
 import type { Product } from './types';
 import './lib/i18n';
@@ -43,12 +43,7 @@ function App() {
   const [showAlerts, setShowAlerts] = useState(false);
   const [showSetAlertModal, setShowSetAlertModal] = useState(false);
   const [selectedProductForAlert, setSelectedProductForAlert] = useState<Product | null>(null);
-  
-  // Home page slider products
-  const [mostSearchedDevices] = useState<Product[]>(() => getMostSearchedDevices());
-  const [bestRatedProducts] = useState<Product[]>(() => getBestRatedProducts());
-  const [latestDeals] = useState<Product[]>(() => getLatestDeals());
-  const [fastestDelivery] = useState<Product[]>(() => getFastestDeliveryProducts());
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   // Check authentication on mount
   useEffect(() => {
@@ -56,6 +51,13 @@ function App() {
   }, []);
 
   const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    setActiveCategory(null);
+    search(query, selectedLocation === 'all' ? undefined : selectedLocation);
+  };
+
+  const handleCategorySelect = (id: string, query: string) => {
+    setActiveCategory(id);
     setSearchQuery(query);
     search(query, selectedLocation === 'all' ? undefined : selectedLocation);
   };
@@ -253,14 +255,19 @@ function App() {
         </div>
       </header>
 
+      {/* Category Navigation - Always visible */}
+      {!showAlerts && (
+        <CategoryNav activeCategory={activeCategory} onSelect={handleCategorySelect} />
+      )}
+
       {/* SearchBar - Always visible, full width */}
       {!showAlerts && (
-        <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-6">
           <SearchBar onSearch={handleSearch} loading={loading} />
         </div>
       )}
 
-      <main className={`${products.length > 0 && searchQuery ? 'w-full' : 'max-w-7xl mx-auto'} px-4 sm:px-6 lg:px-8 py-8 flex-1`}>
+      <main className={`${products.length > 0 ? 'w-full' : 'max-w-7xl mx-auto'} px-4 sm:px-6 lg:px-8 py-8 flex-1`}>
         {showAlerts ? (
           <div>
             <div className="mb-6 flex items-center justify-between">
@@ -277,40 +284,10 @@ function App() {
         ) : (
           <>
 
-            {/* Home Page Sliders - Only show when no search results */}
+            {/* Homepage - Category Grid */}
             {products.length === 0 && !loading && !searchQuery && (
               <div className="space-y-12">
-                <ProductSlider
-                  title={t('home.mostSearched', { defaultValue: 'Most Searched Devices' })}
-                  products={mostSearchedDevices}
-                  onCompare={handleCompare}
-                  onSetAlert={handleSetAlert}
-                  isAuthenticated={authenticated}
-                />
-                
-                <ProductSlider
-                  title={t('home.bestRated', { defaultValue: 'Best Rated Products' })}
-                  products={bestRatedProducts}
-                  onCompare={handleCompare}
-                  onSetAlert={handleSetAlert}
-                  isAuthenticated={authenticated}
-                />
-                
-                <ProductSlider
-                  title={t('home.latestDeals', { defaultValue: 'Latest Deals' })}
-                  products={latestDeals}
-                  onCompare={handleCompare}
-                  onSetAlert={handleSetAlert}
-                  isAuthenticated={authenticated}
-                />
-                
-                <ProductSlider
-                  title={t('home.fastestDelivery', { defaultValue: 'Fastest Delivery' })}
-                  products={fastestDelivery}
-                  onCompare={handleCompare}
-                  onSetAlert={handleSetAlert}
-                  isAuthenticated={authenticated}
-                />
+                <CategoryGrid onSelect={handleCategorySelect} />
 
                 {/* Promo Banner */}
                 <PromoBanner />
@@ -327,7 +304,7 @@ function App() {
             )}
 
             {/* Show "no results" only when user searched but found nothing */}
-            {searchQuery && products.length === 0 && !loading && (
+            {(searchQuery || activeCategory) && products.length === 0 && !loading && (
               <div className="text-center py-16">
                 <p className="text-lg text-gray-500 dark:text-gray-400">{t('search.noResults')}</p>
               </div>

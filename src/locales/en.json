@@ -112,6 +112,18 @@
     "latestDeals": "Latest Deals",
     "fastestDelivery": "Fastest Delivery"
   },
+  "categories": {
+    "browse": "Browse categories",
+    "laptops": "Laptops",
+    "smartphones": "Smartphones",
+    "tvs": "TVs",
+    "tablets": "Tablets",
+    "headphones": "Headphones",
+    "cameras": "Cameras",
+    "washingMachines": "Washing Machines",
+    "refrigerators": "Refrigerators",
+    "airConditioners": "Air Conditioners"
+  },
   "banner": {
     "title": "Save More, Shop Smarter",
     "description": "Compare prices from thousands of stores and find the best deals. Get price alerts and never miss a sale again!",
